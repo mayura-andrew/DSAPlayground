@@ -245,6 +245,20 @@ struct Node* Reverse(struct Node* head) {
 }
 
 /**
+ * Reversely prints the data of a linked list starting from the given node.
+ * 
+ * @param p The pointer to the starting node of the linked list.
+ */
+void ReversePrint(struct Node* p){
+    if ( p == NULL) {
+        return;
+    }
+    ReversePrint(p->next);
+    printf("%d ",p->data);
+}
+
+ 
+/**
  * @brief Prints the elements of the linked list.
  */
 void Print() {
@@ -272,7 +286,10 @@ int main(){
     Print();
     Delete(2); // Deleting the 2nd node
     Print();
-    head = Reverse(head); // Reversing the list
+    ReversePrint(head); // Reversing the list
     Print();
+    ReverseRecursive(head);
+    Print();
+
     return 0;
 }
