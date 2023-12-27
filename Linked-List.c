@@ -253,7 +253,7 @@ void ReversePrint(struct Node* p){
     if ( p == NULL) {
         return;
     }
-    ReversePrint(p->next);
+    ReversePrint(p->next); // recursive mode
     printf("%d ",p->data);
 }
 
