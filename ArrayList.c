@@ -19,7 +19,6 @@ void insertAtBeginning(int list[], int *size, int element){
         printf("Error: List is full, cannot insert at the beginning.\n");
     }
 }
-        printf("Error: Li
 
 // Functipn to insert an element at the end of the list
 
