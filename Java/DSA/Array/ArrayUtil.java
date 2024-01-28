@@ -143,18 +143,18 @@ public class ArrayUtil {
     //  arrUtil.printArray(new int[] {3, 4, 5, 3});
     //  int[] oddNum = arrUtil.removeEven(new int[]{3, 5, 3, 4});
     //  arrUtil.printArray(oddNum);
-     // ArrayUtil.reverseArray(normalArray, 0, normalArray.length -1 );
-      //arrUtil.printArray(normalArray);
+    //  ArrayUtil.reverseArray(normalArray, 0, normalArray.length -1 );
+    //  arrUtil.printArray(normalArray);
 
     //  int min = arrUtil.findMin(normalArray);
-      //System.out.println(min);
+    //  System.out.println(min);
 
-     // int secondMax = arrUtil.findSecondMax(normalArray);
+    //  int secondMax = arrUtil.findSecondMax(normalArray);
     //  System.out.println(secondMax);
 
-     // arrUtil.moveZeros(normalArray, normalArray.length);
+    //  arrUtil.moveZeros(normalArray, normalArray.length);
     
-      //arrUtil.printArray(normalArray);
+    //  arrUtil.printArray(normalArray);
         int[] resizedArray = arrUtil.resize(normalArray, 12);
 
         arrUtil.printArray(resizedArray);
