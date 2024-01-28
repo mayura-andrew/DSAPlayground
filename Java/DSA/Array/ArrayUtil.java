@@ -143,30 +143,29 @@ public class ArrayUtil {
     //  arrUtil.printArray(new int[] {3, 4, 5, 3});
     //  int[] oddNum = arrUtil.removeEven(new int[]{3, 5, 3, 4});
     //  arrUtil.printArray(oddNum);
-     //   ArrayUtil.reverseArray(normalArray, 0, normalArray.length -1 );
-      //  arrUtil.printArray(normalArray);
+     // ArrayUtil.reverseArray(normalArray, 0, normalArray.length -1 );
+      //arrUtil.printArray(normalArray);
 
-    //    int min = arrUtil.findMin(normalArray);
-      //  System.out.println(min);
+    //  int min = arrUtil.findMin(normalArray);
+      //System.out.println(min);
 
-     //   int secondMax = arrUtil.findSecondMax(normalArray);
-       // System.out.println(secondMax);
+     // int secondMax = arrUtil.findSecondMax(normalArray);
+    //  System.out.println(secondMax);
 
-     //   arrUtil.moveZeros(normalArray, normalArray.length);
+     // arrUtil.moveZeros(normalArray, normalArray.length);
     
-      //  arrUtil.printArray(normalArray);
-      int[] resizedArray = arrUtil.resize(normalArray, 12);
+      //arrUtil.printArray(normalArray);
+        int[] resizedArray = arrUtil.resize(normalArray, 12);
 
-      arrUtil.printArray(resizedArray);
+        arrUtil.printArray(resizedArray);
 
-      System.out.println(resizedArray.length);
+        System.out.println(resizedArray.length);
 
-      int missingNum =  ArrayUtil.findMissingNumber(new int[]{1, 2, 3, 5 , 6, 7});
-      System.out.println(missingNum);
+        int missingNum =  ArrayUtil.findMissingNumber(new int[]{1, 2, 3, 5 , 6, 7});
+        System.out.println(missingNum);
 
-      boolean check = arrUtil.isPalindrome("madam");
-      System.out.println(check);
-
+        boolean check = arrUtil.isPalindrome("madam");
+        System.out.println(check);
 
     }
 }
