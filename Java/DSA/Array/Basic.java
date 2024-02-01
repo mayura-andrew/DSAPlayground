@@ -3,7 +3,7 @@ public class Basic{
         // Array declaration
 
         // <datatype> <arrayName>[];
-        // <datatype>[] arrayName;
+        // <datatype>[] arrayName; 
 
         int myArray[];
         int[] myArray1;
