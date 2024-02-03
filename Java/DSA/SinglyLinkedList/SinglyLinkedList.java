@@ -412,16 +412,16 @@ public class SinglyLinkedList{
     // add two numbers
 
     // TO-DO
-    public ListNode add(ListNode a, ListNode b) {
-        ListNode dummy = new ListNode(0);
-        ListNode tail = dummy;
-        int carry = 0;
+    // public ListNode add(ListNode a, ListNode b) {
+    //     ListNode dummy = new ListNode(0);
+    //     ListNode tail = dummy;
+    //     int carry = 0;
 
-        while(a !=  null || b != null){
-            int x = (a != null) ? a.val :0;
-            int y = (b != null) ? b.val
-        }
-    }
+    //     while(a !=  null || b != null){
+    //         int x = (a != null) ? a.val :0;
+    //         int y = (b != null) ? b.val
+    //     }
+    // }
     
 
     public static void main(String[] args) {
