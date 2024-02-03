@@ -1,5 +1,7 @@
 package CircularLinkedList;
 
+import java.util.NoSuchElementException;
+
 public class CircularLinkedList {
     private ListNode last;
     private int lenght;
@@ -55,9 +57,57 @@ public class CircularLinkedList {
         System.out.print(first.data);
     }
 
+    // Insert node at the start of a circular signly linked list
+    public void insertFirst(int data) {
+        ListNode temp = new ListNode(data);
+        if(last ==  null) {
+            last = temp;
+        } else {
+            temp.next = last.next;
+        }
+        last.next = temp;
+        lenght++;
+    }
+
+    // Insert a node at the end of 
+    public void insertLast(int data) {
+        ListNode temp = new ListNode(data);
+        if(last == null) {
+            last = temp;
+            last.next = temp;
+        } else {
+            temp.next = last.next;
+            last.next = temp;
+            last = temp;
+        }
+        lenght++;
+    }
+    // Remove first node 
+    public int removeFirst() {
+        if(isEmpty()) {
+            throw new NoSuchElementException("Circular Signly linked list is already empty");
+        }
+        ListNode temp = last.next;
+        int result = temp.data;
+        if(last.next == last) {
+            last = null;
+        } else {
+            last.next = temp.next;
+        }
+        // temp.next = null; will automatically garbage collected
+        lenght--;
+        return result;
+    }
+
     public static void main(String[] args) {
         CircularLinkedList csll = new CircularLinkedList();
-        csll.createCircularLinkedList();
+        //csll.createCircularLinkedList();
+        csll.insertFirst(10);
+        csll.insertFirst(20);
+        csll.insertLast(30);
+        csll.insertLast(40);
+        csll.display();
+        csll.removeFirst();
         csll.display();
     }
 
