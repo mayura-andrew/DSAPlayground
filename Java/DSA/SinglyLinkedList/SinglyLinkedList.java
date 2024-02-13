@@ -1,4 +1,5 @@
 public class SinglyLinkedList{
+
     private ListNode head;
 
     // Inner class
@@ -20,7 +21,7 @@ public class SinglyLinkedList{
             System.out.print(current.data + " ---> ");
             current = current.next;
         }
-        System.out.print("null");
+        System.out.println("null");
     }
 
     // Find length of the singly linked list
@@ -507,26 +508,32 @@ public class SinglyLinkedList{
         // System.out.println(" ");
 
 
-            System.out.println(" Two merge ");
+            // System.out.println(" Two merge ");
             SinglyLinkedList sll1= new SinglyLinkedList();
-            sll1.insertLast(1);
-            sll1.insertLast(3);
-            sll1.insertLast(4);
+            // // sll1.insertLast(1);
+            // // sll1.insertLast(3);
+            // // sll1.insertLast(4);
+            // sll1.display();
+            // System.out.println(" ");
+            sll1.insertFirst(10);
+            sll1.insertFirst(20);
+            sll1.insertLast(30);
             sll1.display();
-            System.out.println(" ");
 
-            SinglyLinkedList sll2= new SinglyLinkedList();
-            sll2.insertLast(3);
-            sll2.insertLast(8);
-            sll2.insertLast(9);
-            sll2.insertLast(13);
-            sll2.insertLast(18);
+            // SinglyLinkedList sll2= new SinglyLinkedList();
+            // sll2.insertLast(3);
+            // sll2.insertLast(8);
+            // sll2.insertLast(9);
+            // sll2.insertLast(13);
+            // sll2.insertLast(18);
 
-            sll2.display();
-            System.out.println(" ");
-            SinglyLinkedList result = new SinglyLinkedList();
-            result.head = merge(sll1.head, sll2.head);
-            result.display();
+            // sll2.display();
+            // System.out.println(" ");
+            // SinglyLinkedList result = new SinglyLinkedList();
+            // result.head = merge(sll1.head, sll2.head);
+            // result.display();
+
+
 
 
     }

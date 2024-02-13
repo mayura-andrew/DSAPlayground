@@ -1,7 +1,8 @@
 public class ArrayUtil {
+
     public void printArray(int[] arr) {
         int n = arr.length;
-        for(int i = 0; i < n; i++) {
+        for(int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
         System.out.println();
@@ -37,6 +38,7 @@ public class ArrayUtil {
             }
         }
         return result;
+
     }
 
     // Reverse an Array
@@ -138,8 +140,18 @@ public class ArrayUtil {
     public static void main(String[] args) {
 
         ArrayUtil arrUtil = new ArrayUtil();
-        int[] normalArray = new int[]{3, 5, 0, 0, 3, 4, 8, 0};
-    //  arrUtil.arrayDemo();
+
+        arrUtil.arrayDemo();
+        
+        
+        
+        
+        
+        
+        //  int[] normalArray = new int[]{3, 5, 0, 0, 3, 4, 8, 0};
+
+
+
     //  arrUtil.printArray(new int[] {3, 4, 5, 3});
     //  int[] oddNum = arrUtil.removeEven(new int[]{3, 5, 3, 4});
     //  arrUtil.printArray(oddNum);
@@ -155,17 +167,17 @@ public class ArrayUtil {
     //  arrUtil.moveZeros(normalArray, normalArray.length);
     
     //  arrUtil.printArray(normalArray);
-        int[] resizedArray = arrUtil.resize(normalArray, 12);
+        // int[] resizedArray = arrUtil.resize(normalArray, 12);
 
-        arrUtil.printArray(resizedArray);
+        // arrUtil.printArray(resizedArray);
 
-        System.out.println(resizedArray.length);
+        // System.out.println(resizedArray.length);
 
-        int missingNum =  ArrayUtil.findMissingNumber(new int[]{1, 2, 3, 5 , 6, 7});
-        System.out.println(missingNum);
+        // int missingNum =  ArrayUtil.findMissingNumber(new int[]{1, 2, 3, 5 , 6, 7});
+        // System.out.println(missingNum);
 
-        boolean check = arrUtil.isPalindrome("madam");
-        System.out.println(check);
+        // boolean check = arrUtil.isPalindrome("madam");
+        // System.out.println(check);
 
     }
 }
