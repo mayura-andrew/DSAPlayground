@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BinaryTree",
+            "request": "launch",
+            "mainClass": "BinaryTree.BinaryTree",
+            "projectName": "DSA_c8b4eb14"
+        },
+        {
+            "type": "java",
             "name": "ValidParenthesesProblem",
             "request": "launch",
             "mainClass": "Stack.ValidParenthesesProblem",
