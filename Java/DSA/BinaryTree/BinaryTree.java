@@ -22,7 +22,7 @@ public class BinaryTree {
     public void createBinaryTree() {
         TreeNode first = new TreeNode(1);
         TreeNode second = new TreeNode(2);
-        TreeNode third = new TreeNode(3);
+        TreeNode third = new TreeNode(10);
         TreeNode fourth = new TreeNode(4);
         TreeNode fifth = new TreeNode(5);
 
@@ -153,6 +153,23 @@ public class BinaryTree {
         }
     }
 
+    // Finding the Maximum value in a BT
+    public int findMax(TreeNode root) {
+        if(root == null) { // Base case
+            return Integer.MIN_VALUE;
+        }
+        int result = root.data;
+        int left = findMax(root.left);
+        int right = findMax(root.right);
+        if(left > result) {
+            result = left;
+        }
+        if (right > result) {
+            result = right;
+        }
+        return result;
+    }
+    
 
     public static void main(String[] args) {
         BinaryTree bt = new BinaryTree();
@@ -161,6 +178,8 @@ public class BinaryTree {
         //   bt.inOrder(bt.root);
         //   bt.postOrder(bt.root);
         // bt.postOrder();
-        bt.levelOrder();
+        // bt.levelOrder();
+        int max = bt.findMax(bt.root);
+        System.out.println(max);
     }
 }
