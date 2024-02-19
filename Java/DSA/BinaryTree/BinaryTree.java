@@ -17,7 +17,7 @@ public class BinaryTree {
     }
 
     public void createBinaryTree() {
-        TreeNode first = new TreeNode(1);
+        TreeNode first = new TreeNode(9);
         TreeNode second = new TreeNode(2);
         TreeNode third = new TreeNode(3);
         TreeNode fourth = new TreeNode(4);
@@ -63,10 +63,81 @@ public class BinaryTree {
             } 
         }
     }
-    
+
+    // Recursive inorder traveral of Ba=inary tree
+    // public void inOrder(TreeNode root) {
+    //     if(root == null) {
+    //         return;
+    //     }
+    //     inOrder(root.left);
+    //     System.out.print(root.data + " ");
+    //     inOrder(root.right);
+    // }
+
+
+    // Iterative Inorder traversal of a Binary Tree
+    public void inOrder(TreeNode root) {
+        if(root == null) {
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode temp = root;
+
+        while(!stack.isEmpty() || temp != null) {
+            if(temp != null) {
+                stack.push(temp);
+                temp = temp.left;
+            } else {
+                temp = stack.pop();
+                System.out.print(temp.data + " ");
+                temp = temp.right;
+            }
+        }
+    }
+
+    // Post Order Recursive Traversal
+
+    public void postOrder(TreeNode root) {
+        if(root == null) {
+            return;
+        }
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.data + " ");
+    }
+
+    // Iterative Postorder Traversal of a Binary Tree
+    public void postOrder() {
+        TreeNode current = root;
+        Stack<TreeNode> stack = new Stack<>();
+
+        while(current != null || !stack.isEmpty()){
+            if(current != null) {
+                stack.push(current);
+                current = current.left;
+            } else {
+                TreeNode temp = stack.peek().right;
+                if(temp == null) {
+                    temp = stack.pop();
+                    System.out.print(temp.data + " ");
+                    while (!stack.isEmpty() && temp == stack.peek().right) {
+                        temp = stack.pop();
+                        System.out.print(temp.data + " "); 
+                    } 
+                } else {
+                        current = temp;
+                }
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
         BinaryTree bt = new BinaryTree();
         bt.createBinaryTree();
-        bt.preOrder();
+        //   bt.preOrder();
+        //   bt.inOrder(bt.root);
+        //   bt.postOrder(bt.root);
+        bt.postOrder();
     }
 }
