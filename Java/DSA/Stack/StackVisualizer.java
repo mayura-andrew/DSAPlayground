@@ -9,22 +9,24 @@ public class StackVisualizer extends JFrame {
     private DefaultListModel<String> listModel;
     private JList<String> list;
     private JTextField inputField;
+    private int pushCount;
 
     public StackVisualizer() {
-            Stack<Integer> stack = new Stack<>();
-            listModel = new DefaultListModel<>();
-            list = new JList<>(listModel);
-            JScrollPane scrollPane = new JScrollPane(list);
+        stack = new Stack<>();
+        listModel = new DefaultListModel<>();
+        list = new JList<>(listModel);
+        JScrollPane scrollPane = new JScrollPane(list);
 
-            inputField = new JTextField();
-            JButton pushButton = new JButton("Push");
+        inputField = new JTextField();
+        JButton pushButton = new JButton("Push");
         pushButton.addActionListener(e -> {
             String inputValue = inputField.getText();
             if (!inputValue.isEmpty()) {
                 try {
                     int value = Integer.parseInt(inputValue);
                     stack.push(value);
-                    listModel.addElement(String.valueOf(value));
+                    listModel.addElement(pushCount + ": " + value);
+                    pushCount++;
                     inputField.setText("");
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(this, "Invalid input. Please enter an integer.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -37,6 +39,7 @@ public class StackVisualizer extends JFrame {
             if (!stack.isEmpty()) {
                 stack.pop();
                 listModel.removeElementAt(listModel.size() - 1);
+                pushCount--;
             } else {
                 JOptionPane.showMessageDialog(this, "Stack is empty, cannot pop.", "Error", JOptionPane.ERROR_MESSAGE);
             }
