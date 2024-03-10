@@ -1,5 +1,7 @@
-# Notes 
-
+---
+title : "DSA"
+output: pdf_document
+---
 
 ## Array
 
@@ -37,7 +39,7 @@
 ### Abstract data types 
 - it's a way of looking at a data structures: focusing on what it does and ignoring how it does its job.
 
-#### # note 
+#### note 
 - in oop, an abstract data type is a class considered without regard to its implementation. it's description of the data in the class (fields), a list of operations (methods) that can be carried out on that data,
 -  and instructions on how to use these operations. specifically excluded are the details of how the methods carry out their tasks. as a class user, you're told what methods to call, how to call them, and the results you can expect, but not how they work.
 - the meaning of **"Abstract data type"** is further extended when it's applied to data structures such as stacks and queues. As with any class, it means the data and the operations that can be performed on it, but in this context even the fundamentals of how the data is stored become invisible to the user.  Users not only don't know how the methods work, they also don't know what structure is used to store the data. 
@@ -45,3 +47,34 @@ Example :- For the stack, the user knows that push() and pop() (and perhaps a fe
 
 ### ADT Lists
  #### Lists -  is a group of items arranged in a linear order. 
+
+
+ ## Traversing the Tree
+Traversing a tree means visiting each node in a specified order. this process is not as commonly  used as finding, inserting, and deleting nodes. One reason for this is that traversal is not particulary fast. But traversing a tree useful in some circumstances, and it's theoretilly interesting. (It's also simpler than deletion, the discussion of which we want to defer as long as possible).
+
+1. Preorder
+2. InOrder
+3. PostOrder
+
+the order most commonly used for binary search trees is inorder. 
+
+## Inorder Traversal 
+
+An order traversal of a binary search tree will cause all the nodes to be visited in **asending order**, based on their key values.
+
+- If you want to create a sorted list of the data in a binary tree, this is one way to do it.
+
+- the simplest way to carry out a traversal is the use of the recursion.
+  
+  - 1. call itself to traverse the node's left subtree.
+  - 2. Visit the node
+  - 3. Call itself to traverse the node's right subtree.
+- Note : visiting a node means doing something to it: displaying it, writing it to a file. or whatever. 
+
+```java
+private void inorder(node localRoot) {
+  inOrder(localRoot.leftChild);
+  System.out.println(localRoot.data + " ");
+  inOrder(localRoot.rightChild);
+}
+```
