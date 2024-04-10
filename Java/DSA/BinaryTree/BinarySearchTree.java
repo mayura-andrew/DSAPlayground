@@ -16,11 +16,10 @@ public class BinarySearchTree {
     }
     
     // Insert a value in a Binary Search  (Recursion Method) 
-
     public void insert(int value) {
         root = insert(root, value);
     }
-
+    // Recursive method for inserting node to the binary search tree
     public TreeNode insert(TreeNode root, int value) {
         if(root == null) {
             root = new TreeNode(value);
@@ -87,21 +86,23 @@ public class BinarySearchTree {
     
     public static void main(String[] args){
         BinarySearchTree bst = new BinarySearchTree();
-        bst.insert(1);
-        bst.insert(2);
-        bst.insert(3);
-        bst.insert(4);
-        bst.insert(5);
+        bst.insert(20);
+        bst.insert(15);
+        bst.insert(25);
+        bst.insert(10);
+        bst.insert(18);
+        bst.insert(22);
+        bst.insert(30);
 
         bst.inOrder();
         
-        if(null != bst.search(1)) {
+        if(null != bst.search(10)) {
             System.out.println("Key is found");
         } else{
             System.out.println("Key is not found");
         }
         
-        boolean isValid = (bst.isValid(1, 5));
+        boolean isValid = (bst.isValid(10, 30 ));
         if (isValid){
             System.out.println("The binary search tree is valid");
         } else {

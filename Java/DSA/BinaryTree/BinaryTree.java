@@ -20,30 +20,47 @@ public class BinaryTree {
     }
 
     public void createBinaryTree() {
-        TreeNode first = new TreeNode(1);
-        TreeNode second = new TreeNode(2);
-        TreeNode third = new TreeNode(10);
-        TreeNode fourth = new TreeNode(4);
-        TreeNode fifth = new TreeNode(5);
+        TreeNode first = new TreeNode(12);
+        TreeNode second = new TreeNode(7);
+        TreeNode third = new TreeNode(15);
+        TreeNode fourth = new TreeNode(3);
+        TreeNode fifth = new TreeNode(9);
+        TreeNode sixth = new TreeNode(14);
+        TreeNode seventh = new TreeNode(20);
+        TreeNode eight = new TreeNode(1);
+        TreeNode nineth = new TreeNode(10);
 
         root = first; // root ---> first
         first.left = second;
         first.right = third;  // second <---- first ----> third
-
         second.left = fourth;
         second.right = fifth;
+        third.left = sixth;
+        third.right = seventh;
+        fourth.left = null;
+        fourth.right = null;
+        fifth.left = eight;
+        fifth.right = null;
+        sixth.left = null;
+        sixth.right = nineth;
+        nineth.left = null;
+        nineth.right = null;
+        eight.left = null;
+        eight.right = null;
+        seventh.left = null;
+        seventh.right = null; 
     }
 
 
     // Recursive PreOrder traversal of a Binary Tree
-    // public void preOrder(TreeNode root) {
-    //     if(root == null) {
-    //         return;
-    //     }
-    //     System.out.print(root.data + " ");
-    //     preOrder(root.left);
-    //     preOrder(root.right);
-    // }
+   public void preOrder(TreeNode root) {
+        if(root == null) {
+            return;
+        }
+        System.out.print(root.data + " ");
+        preOrder(root.left);
+        preOrder(root.right);
+   }
 
     // Iterative Preorder traversal of a Binary Tree
 
@@ -68,38 +85,38 @@ public class BinaryTree {
     }
 
     // Recursive inorder traveral of Ba=inary tree
-    // public void inOrder(TreeNode root) {
-    //     if(root == null) {
-    //         return;
-    //     }
-    //     inOrder(root.left);
-    //     System.out.print(root.data + " ");
-    //     inOrder(root.right);
-    // }
 
-
-    // Iterative Inorder traversal of a Binary Tree
     public void inOrder(TreeNode root) {
         if(root == null) {
             return;
         }
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode temp = root;
-
-        while(!stack.isEmpty() || temp != null) {
-            if(temp != null) {
-                stack.push(temp);
-                temp = temp.left;
-            } else {
-                temp = stack.pop();
-                System.out.print(temp.data + " ");
-                temp = temp.right;
-            }
-        }
+        inOrder(root.left);
+        System.out.print(root.data + " ");
+        inOrder(root.right);
     }
 
-    // Post Order Recursive Traversal
 
+    // // Iterative Inorder traversal of a Binary Tree
+    // public void inOrder(TreeNode root) {
+    //     if(root == null) {
+    //         return;
+    //     }
+    //     Stack<TreeNode> stack = new Stack<>();
+    //     TreeNode temp = root;
+
+    //     while(!stack.isEmpty() || temp != null) {
+    //         if(temp != null) {
+    //             stack.push(temp);
+    //             temp = temp.left;
+    //         } else {
+    //             temp = stack.pop();
+    //             System.out.print(temp.data + " ");
+    //             temp = temp.right;
+    //         }
+    //     }
+    // }
+
+    // Post Order Recursive Traversal
     public void postOrder(TreeNode root) {
         if(root == null) {
             return;
@@ -179,7 +196,12 @@ public class BinaryTree {
         //   bt.postOrder(bt.root);
         // bt.postOrder();
         // bt.levelOrder();
-        int max = bt.findMax(bt.root);
-        System.out.println(max);
+        // int max = bt.findMax(bt.root);
+        bt.postOrder(bt.root);
+         System.out.println();
+        bt.inOrder(bt.root);
+         System.out.println();
+        bt.preOrder();
+        // System.out.println(max);
     }
 }
