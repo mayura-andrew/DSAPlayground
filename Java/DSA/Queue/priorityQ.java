@@ -1,3 +1,5 @@
+package Queue;
+
 import java.io.IOException;
 
 class PriorityQ {

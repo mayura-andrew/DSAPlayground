@@ -69,7 +69,7 @@ public class AdjacencyList {
     public void dfs() {
         boolean[] visited = new boolean[V];
         for(int v = 0; v < V; v++) {
-            if(!visited[v]) {
+            if(!   visited[v]) {
                 dfs(v, visited);
             }
         }
