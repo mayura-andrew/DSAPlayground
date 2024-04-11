@@ -63,7 +63,26 @@ public class AdjacencyList {
                 }
             }
         }
+    }
 
+    // Recursive approach for DFS
+    public void dfs() {
+        boolean[] visited = new boolean[V];
+        for(int v = 0; v < V; v++) {
+            if(!visited[v]) {
+                dfs(v, visited);
+            }
+        }
+    }
+
+    public void dfs(int v, boolean[] visited) {
+        visited[v] = true;
+        System.out.print(v + " ");
+        for(int w : adj[v]){
+            if(!visited[w]) {
+                dfs(w, visited);
+            }
+        }
     }
 
 
@@ -93,7 +112,9 @@ public class AdjacencyList {
         System.out.println();
         ad.bfs(0);
         System.out.println();
-        ad.dfs(3);
+        // ad.dfs(0);
+        System.out.println();
+        ad.dfs();
 
     }
 
