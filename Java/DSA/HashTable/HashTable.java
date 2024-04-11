@@ -76,7 +76,26 @@ public class HashTable {
 
     // remove
     public String remove(Integer key) {
-        return null;
+        int bucketIndex = getBucketIndex(key);
+        HashNode head = buckets[bucketIndex];
+        HashNode previous = null;
+        while (head!=null) {
+            if(head.key.equals(key)) {
+                    break;
+            }
+            previous = head;
+            head = head.next;
+        }
+        if(head == null){
+            return null;
+        }
+        size--;
+        if(previous != null) {
+            previous.next = head.next;
+        } else {
+            buckets[bucketIndex] = head.next;
+        }
+        return head.value;
     }
     
     public static void main(String[] args) {
