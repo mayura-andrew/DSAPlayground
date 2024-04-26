@@ -1,3 +1,5 @@
+package BinaryTree;
+
 public class MaxPQ {
     private Integer[] heap;
     private int n; // size of max heap
@@ -24,16 +26,30 @@ public class MaxPQ {
         swim(n);
     }
 
-    public int deleteMax() {
+    public int deleteMax() {  // top-down reheapify (sink) (shift down)
         int max = heap[1];
         swap(1, n);
         n--;
-        swim(1);
+        sink(1);
         heap[n+1] = null;
         if(n > 0 && (n == (heap.length - 1)/4)) {
             resize(heap.length/2);
         }
         return max;
+    }
+
+    public void sink(int k) {
+        while(2*k <= n) {
+            int j = 2*k;
+            if(j < n && heap[j] < heap[j+1]) {
+                j++;
+            }
+            if (heap[k] >= heap[j]) {
+                break;
+            } 
+            swap(k, j);
+            k = j;
+        }
     }
 
     public void swap(int a, int b) {
@@ -72,7 +88,7 @@ public class MaxPQ {
         pq.insert(3);
         pq.insert(1);
         pq.insert(10);
-        pq.insert(4);
+        pq.insert(11);
         System.out.println(pq.size()); // 0
         pq.printMaxHeap();
         pq.deleteMax();
