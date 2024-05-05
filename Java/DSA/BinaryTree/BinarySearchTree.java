@@ -39,6 +39,10 @@ public class BinarySearchTree {
         inOrder(root);
     }
 
+    public void preOrder() {
+        preOrder(root);
+    }
+
     // Search
     public TreeNode search(int key){
         return search(root, key);
@@ -54,8 +58,17 @@ public class BinarySearchTree {
             return;
         }
         inOrder(root.left);
-        System.out.println(root.data + " ");
+        System.out.print(root.data + " ");
         inOrder(root.right);
+    }
+
+    public void preOrder(TreeNode root) {
+        if(root == null) {
+            return;
+        }
+        System.out.print(root.data + " ");
+        preOrder(root.left);
+        preOrder(root.right);
     }
     public TreeNode search(TreeNode root, int key) {
         if(root == null || root.data == key) {
@@ -93,21 +106,21 @@ public class BinarySearchTree {
         bst.insert(18);
         bst.insert(22);
         bst.insert(30);
+        bst.insert(40);
+        bst.preOrder();
 
-        bst.inOrder();
+        // if(null != bst.search(10)) {
+        //     System.out.println("Key is found");
+        // } else{
+        //     System.out.println("Key is not found");
+        // }
         
-        if(null != bst.search(10)) {
-            System.out.println("Key is found");
-        } else{
-            System.out.println("Key is not found");
-        }
-        
-        boolean isValid = (bst.isValid(10, 30 ));
-        if (isValid){
-            System.out.println("The binary search tree is valid");
-        } else {
-            System.out.println("The binary search tree is not valid");
-        }
+        // boolean isValid = (bst.isValid(10, 30 ));
+        // if (isValid){
+        //     System.out.println("The binary search tree is valid");
+        // } else {
+        //     System.out.println("The binary search tree is not valid");
+        // }
         
 
     }

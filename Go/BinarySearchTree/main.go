@@ -8,8 +8,6 @@ type Node struct {
 	Right *Node
 }
 
-
-
 func (n *Node) Insert(k int) {
 	if n.Key < k {
 		// move right
@@ -44,6 +42,41 @@ func (n *Node) Search(k int) bool {
 	return true
 }
 
+func (n *Node) PreOrder() {
+	if (n == nil) {
+		return
+	}
+	fmt.Println(n.Key)
+	n.Left.PreOrder()
+	n.Right.PreOrder()	
+}
+
+func (n *Node) PostOrder() {
+	if (n == nil) {
+		return
+	}
+	n.Left.PostOrder()
+	n.Right.PostOrder()
+	fmt.Println(n.Key)
+}
+
+func (n *Node) InOrder() {
+	if (n == nil) {
+		return
+	}
+	n.Left.InOrder()
+	fmt.Println(n.Key)
+	n.Right.InOrder()
+}
+
+// public void preOrder(TreeNode root) {
+// 	if(root == null) {
+// 		return;
+// 	}
+// 	System.out.print(root.data + " ");
+// 	preOrder(root.left);
+// 	preOrder(root.right);
+// }
 func main() {
 	tree := &Node{Key: 100}
 	tree.Insert(40)
@@ -51,8 +84,9 @@ func main() {
 	tree.Insert(10)
 	tree.Insert(30)
 	tree.Insert(50)
-	fmt.Println(tree)
-	fmt.Println(tree.Search(10))
-	fmt.Println(tree.Search(100))
-	fmt.Println(tree.Search(1))
+	// fmt.Println(tree.Search(10))
+	// fmt.Println(tree.Search(100))
+	// fmt.Println(tree.Search(1))
+	tree.PostOrder()
+	fmt.Println("---")
 }

@@ -170,6 +170,37 @@ public class BinaryTree {
         }
     }
 
+    public boolean insert(int toInsert) {
+        if(root == null) {
+            root = new TreeNode(toInsert);
+            return true;
+        }
+
+        TreeNode temp = root;
+        TreeNode parent = null;
+        int comp = 0;
+
+        while (temp != null) {
+            parent = temp;
+            comp = Integer.compare(toInsert, temp.data);
+
+            if (comp < 0) {
+                temp = temp.left;
+            } else if (comp > 0) {
+                temp = temp.right;
+            } else {
+                return false;
+            }
+        } 
+
+        if (comp < 0) {
+            parent.left = new TreeNode(toInsert);
+        } else {
+            parent.right = new TreeNode(toInsert);
+        }
+        return true;
+    }
+
     // Finding the Maximum value in a BT
     public int findMax(TreeNode root) {
         if(root == null) { // Base case
@@ -197,11 +228,12 @@ public class BinaryTree {
         // bt.postOrder();
         // bt.levelOrder();
         // int max = bt.findMax(bt.root);
-        bt.postOrder(bt.root);
+        // bt.postOrder(bt.root);
+        //  System.out.println();
+        // bt.inOrder(bt.root);
          System.out.println();
-        bt.inOrder(bt.root);
-         System.out.println();
-        bt.preOrder();
+         bt.insert(30);
+         bt.preOrder();
         // System.out.println(max);
     }
 }
