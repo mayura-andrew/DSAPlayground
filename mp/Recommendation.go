@@ -1,9 +1,9 @@
 package main
 
-func generatePersonalizedRecommndations(profile map[string]int, rankings map[string][]Restaurant) []Restaurant {
+func generatePersonalizedRecommndations(userInterests map[string]int, rankings map[string][]Restaurant) []Restaurant {
     var recommendations []Restaurant
 
-    for cuisineType, count := range profile {
+    for cuisineType, count := range userInterests {
 		restaurants := rankings[cuisineType]
 
 		if len(restaurants) > count {

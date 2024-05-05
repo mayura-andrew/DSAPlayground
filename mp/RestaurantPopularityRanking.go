@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+// import "fmt"
 
 type restaurantEntry struct {
 	restaurant Restaurant
@@ -53,23 +53,56 @@ func rankRestaurantsByPopularity(profile map[string]int, catalog []Restaurant) m
 	rankings := make(map[string][]Restaurant)
 
 	for cuisineType := range profile {
-		heap := make(restaurantHeap, 0)
-
+		// heap := make(restaurantHeap, 0)
+		cuisineRestaurants := make([]Restaurant, 0)
 		for _, restaurant := range catalog {
 			if restaurant.CuisineType == cuisineType {
-				score := calculatePopupalarityScore(restaurant)
-				heap.Push(restaurantEntry{restaurant, score, len(heap)})
-				fmt.Println(score)
+				// score := calculatePopupalarityScore(restaurant)
+				// heap.Push(restaurantEntry{restaurant, score, len(heap)})
+				// fmt.Println(score)
+				cuisineRestaurants = append(cuisineRestaurants, restaurant)
 			}
 		}
 
-		topRestaurants := make([]Restaurant, 0)
-		for heap.Len() > 0 {
-			entry := heap.Pop().(restaurantEntry)
-			topRestaurants = append(topRestaurants, entry.restaurant)
-		}
+		// topRestaurants := make([]Restaurant, 0)
+		// for heap.Len() > 0 {
+		// 	entry := heap.Pop().(restaurantEntry)
+		// 	topRestaurants = append(topRestaurants, entry.restaurant)
+		// }
+		heapSort(cuisineRestaurants)
 
-		rankings[cuisineType] = topRestaurants
+		rankings[cuisineType] = cuisineRestaurants
 	}
 	return rankings
+}
+
+func heapify(arr []Restaurant, n int, i int) {
+	largest := i
+	left := 2*i + 1
+	right := 2*i + 2
+
+	if left < n && calculatePopupalarityScore(arr[left]) < calculatePopupalarityScore(arr[largest]){
+		largest = left
+	}
+	if right < n && calculatePopupalarityScore(arr[right]) < calculatePopupalarityScore(arr[largest]){
+		largest = right
+	}
+
+	if largest != i {
+		arr[i], arr[largest] = arr[largest], arr[i]
+		heapify(arr, n, largest)
+	}
+}
+
+func heapSort (arr []Restaurant) {
+	n := len(arr)
+
+	for i := n/2 - 1; i >= 0; i-- {
+		heapify(arr, n, i)
+	}
+
+	for i := n - 1 ; i > 0; i-- {
+		arr[0], arr[i] = arr[i], arr[0]
+		heapify(arr, i, 0)
+	}
 }
