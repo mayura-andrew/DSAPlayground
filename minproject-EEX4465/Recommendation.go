@@ -34,14 +34,24 @@ func binarySearch(recommendations []Restaurant, target int) int {
 	return -1
 }
 
-func getTopKRecommendations(recommendations []Restaurant, k int) []Restaurant {
-	topK := make([]Restaurant, 0 , k)
 
-	for i := 0; i < k; i++ {
-		index := binarySearch(recommendations, i)
-		if index != -1 {
-			topK = append(topK, recommendations[index])
-		}
-	}
-	return topK
+func getTopKRecommendations(recommendations []Restaurant, k int, cuisineType string) []Restaurant {
+    topK := make([]Restaurant, 0 , k)
+    filteredRecommendations := make([]Restaurant, 0)
+
+
+    for _, restaurant := range recommendations {
+        if restaurant.CuisineType == cuisineType {
+            filteredRecommendations = append(filteredRecommendations, restaurant)
+        }
+    }
+
+
+    for i := 0; i < k && i < len(filteredRecommendations); i++ {
+        index := binarySearch(filteredRecommendations, i)
+        if index != -1 {
+            topK = append(topK, filteredRecommendations[index])
+        }
+    }
+    return topK
 }

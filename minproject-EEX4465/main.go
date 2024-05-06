@@ -76,12 +76,14 @@ func main() {
     fmt.Println(rankedRestaurants)
     fmt.Println("----------")
 
+    fmt.Println("Recommendation")
     recommendations := generatePersonalizedRecommndations(userInterests, rankedRestaurants)
     fmt.Println(recommendations)
 
     k := 10
+    fmt.Println("TOp Recommendation")
 
-    topK := getTopKRecommendations(recommendations, k)
+    topK := getTopKRecommendations(recommendations, k, "Sri Lankan")
     
     for _, restaurant := range topK {
         fmt.Println(restaurant)
