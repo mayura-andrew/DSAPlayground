@@ -31,8 +31,17 @@ The implementations are designed to be clear, concise, and efficient, providing 
 
 ## How to Use
 
-To get started, navigate to the respective directories for data structures or algorithms that you are interested in. Each directory contains the C source code files along with accompanying documentation and examples.
+To get started, navigate to the respective directories for data structures or algorithms that you are interested in. Each directory contains the source code files along with accompanying documentation and examples.
 
 Feel free to explore, modify, and experiment with the code to deepen your understanding of data structures and algorithms in the C language.
+
+## Resources which I used for this
+
+- https://courses.ms.wits.ac.za/~steve/aaa/book/large/
+  
+- https://youtube.com/playlist?
+list=PL6Zs6LgrJj3tDXv8a_elC6eT_4R5gfX4d&si=1PlORvsj-lSqERuK
+
+- https://youtu.be/B31LgI4Y4DQ?si=k51_Hes5qZjoMF58
 
 Happy coding!
