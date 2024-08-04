@@ -15,8 +15,6 @@ The codebase includes implementations of commonly used data structures such as:
 - Graphs
 - Hash Tables
 
-Each data structure is accompanied by detailed explanations and examples to help you understand their usage and performance characteristics.
-
 ## Algorithms
 
 In addition to data structures, this codebase also covers a wide range of algorithms, including:
