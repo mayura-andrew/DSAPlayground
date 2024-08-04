@@ -39,8 +39,7 @@ Feel free to explore, modify, and experiment with the code to deepen your unders
 
 - https://courses.ms.wits.ac.za/~steve/aaa/book/large/
   
-- https://youtube.com/playlist?
-list=PL6Zs6LgrJj3tDXv8a_elC6eT_4R5gfX4d&si=1PlORvsj-lSqERuK
+- https://youtube.com/playlist?list=PL6Zs6LgrJj3tDXv8a_elC6eT_4R5gfX4d&si=1PlORvsj-lSqERuK
 
 - https://youtu.be/B31LgI4Y4DQ?si=k51_Hes5qZjoMF58
 
