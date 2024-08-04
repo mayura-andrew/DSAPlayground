@@ -1,22 +1,51 @@
 package main
 
-import "fmt"
-
-
-
-
-
-
+import (
+    "fmt"
+    "math/rand"
+    "time"
+)
 
 func main() {
-	// fmt.Println("Hello world")
+    // Seed the random number generator
+    rand.Seed(time.Now().UnixNano())
 
-	arr := []int{3, 2, 1, 5, 4}
-	fmt.Println(arr)
-	fmt.Println(MergeSort(arr))
+    // Generate an array of 1000 random integers
+    arr := make([]int, 100)
+    for i := range arr {
+        arr[i] = rand.Intn(100) // Random integer between 0 and 999
+    }
 
-	fmt.Println(maxSort(arr))
-	fmt.Println(selectionSort(arr))
+    // Measure and print the time taken by MergeSort
+    start := time.Now()
+    MergeSort(arr)
+    fmt.Println("MergeSort took:", time.Since(start))
+
+    // Measure and print the time taken by maxSort
+    start = time.Now()
+    maxSort(arr)
+    fmt.Println("maxSort took:", time.Since(start))
+
+    // Measure and print the time taken by selectionSort
+    start = time.Now()
+    selectionSort(arr)
+    fmt.Println("selectionSort took:", time.Since(start))
+
+    // Measure and print the time taken by bubbleSort
+    start = time.Now()
+    bubbleSort(arr)
+    fmt.Println("bubbleSort took:", time.Since(start))
+
+    // Measure and print the time taken by insertionSort
+    start = time.Now()
+    insertionSort(arr)
+    fmt.Println("insertionSort took:", time.Since(start))
+
+	// Measure and print the time taken by quickSort
+	start = time.Now()
+	quickSort(arr)
+	fmt.Println("quickSort took:", time.Since(start))
+
 }
 
 
@@ -41,21 +70,16 @@ func merge(left, right []int) []int {
 	for l < len(left) && r < len(right) {
 		if left[l] < right[r] {
 			result = append(result, left[l])
-			fmt.Println(result)
 			l++
 		} else {
 			result = append(result, right[r])
-			fmt.Println(result)
 			r++
 		}
 
 	}
-	fmt.Println(result)
 
 	result = append(result, left[l:]...)
-	fmt.Println(result)
 	result = append(result, right[r:]...)
-	fmt.Println(result)
 
 	return result
 } 
@@ -95,5 +119,45 @@ func bubbleSort(arr []int) []int {
 			}
 		}
 	}
+	return arr
+}
+
+
+func insertionSort(arr []int) []int {
+	for i:= 1; i < len(arr); i++ {
+		key := arr[i]
+		j := i - 1
+		for j >= 0 && arr[j] > key {
+			arr[j+1] = arr[j]
+			j--
+		}
+		arr[j+1] = key
+ 	}
+	return arr
+}
+
+
+func quickSort(arr []int) []int {
+	if len(arr) <= 1 {
+		return arr
+	}
+
+	left, right := 0, len(arr) - 1
+	pivot := rand.Int() % len(arr)
+
+	arr[pivot], arr[right] = arr[right], arr[pivot]
+
+	for i := range arr {
+		if arr[i] < arr[right] {
+			arr[i], arr[left] = arr[left], arr[i]
+			left++
+		}
+	}
+
+	arr[left], arr[right] = arr[right], arr[left]
+
+	quickSort(arr[:left])
+	quickSort(arr[left + 1:])
+
 	return arr
 }
